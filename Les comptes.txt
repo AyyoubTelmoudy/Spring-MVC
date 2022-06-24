@@ -7,12 +7,12 @@ email     :  superviseur@gmail.com
 password  :  12345
 
 
-////////Administrateur////////
-email     :  kay.technologie.gdr@gmail.com                             
+////////Collaborateur////////
+email     :  collaborateur@gmail.com                            
 password  :  12345
 
-////////Administrateur////////
-email     :  kay.technologie.gdr@gmail.com                             
+////////Client////////
+email     :  client@gmail.com                            
 password  :  12345
 
 
