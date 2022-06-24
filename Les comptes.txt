@@ -1,0 +1,18 @@
+////////Administrateur////////
+email     :  kay.technologie.gdr@gmail.com                             
+password  :  12345
+
+////////Superviseur////////
+email     :  superviseur@gmail.com                             
+password  :  12345
+
+
+////////Administrateur////////
+email     :  kay.technologie.gdr@gmail.com                             
+password  :  12345
+
+////////Administrateur////////
+email     :  kay.technologie.gdr@gmail.com                             
+password  :  12345
+
+
