@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Morocco24</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="static/img/favicon.png" rel="icon">
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body onload="loginFormResizing();" onresize="loginFormResizing();">
+<header id="header" class="header-scrolled" >
+    <div class="container-fluid">
+        <div id="logo" class="pull-left">
+            <h1><a href="/" class="scrollto" style="text-decoration: none;">Morocco24</a></h1>
+        </div>
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="/">À LA UNE</a></li>
+                <li><a href="/#policy">POLITIQUE</a></li>
+                <li><a href="/#culture">CULTURE</a></li>
+                <li><a href="/#sport">SPORT</a></li>
+                <li><a href="/#economy">ÉCONOMIE</a></li>
+                <li><a href="/#our-journalists">NOS JOURNALISTES</a></li>
+                <li><a href="login" th:unless="${isAuthenticated}">S'IDENTIFIER</a></li>
+                <li><a href="sign-up" th:unless="${isAuthenticated}">S'INSCRIRE</a></li>
+                <li><a href="/#contact">CONTACT</a></li>
+                <li><a th:href="@{/logout}"  th:if="${isAuthenticated}">SE DÉCONNECTER</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="main" style="margin-bottom: 5%;">
+    <div class="card border-info mb-3" id="loginForm" style=" margin: auto; margin-top: 10%;">
+        <div class="card-header" style="text-align: center;">
+            <h2>Morroco24</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">S'INSCRIRE</h5>
+            <p class="card-text">
+            <form th:action="@{/sign-up}" method="post" th:object="${lecteur}">
+
+
+            <div class="mb-3">
+                <label class="form-label">Nom</label>
+                <input type="text" th:field="*{nom}" name="nom" placeholder="Nom"  class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Prénom</label>
+                <input type="text" th:field="*{prenom}" name="prenom" placeholder="Prénom" class="form-control" required>
+            </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" th:field="*{email}" name="email" placeholder="Email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" th:field="*{password}" name="password" placeholder="Mot de passe" class="form-control" id="password" required>
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="S'INSCRIRE" class="btn btn-success" style="width:60%;"  />
+                </div>
+            </form>
+
+            </p>
+        </div>
+    </div>
+</main>
+
+
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 footer-info">
+                    <h3>Morocco24</h3>
+                    <p>Fondé en 2022 au Maroc, Morocco24 est le média de référence dans le monde entier. Il offre chaque jour des informations politiques, économiques, sociales et culturelles qui
+                        permettent à ses lecteurs de mieux comprendre l’actualité mondiale.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 col-md-6 footer-info">
+                    <h3>CONTACT</h3>
+                    <p>
+                        <strong>Adresse : </strong>45 RUE ABDELADER MOUFTAKAR ETG 2 APPT 4 20000 CASABLANCA<br>
+                        <strong>Téléphone : </strong>+212698765423<br>
+                        <strong>Email : </strong>morroco24@gmail.com<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="http://morroco24.com" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</footer>
+<script src="static/lib/jquery/jquery.min.js"></script>
+<script src="static/lib/jquery/jquery-migrate.min.js"></script>
+<script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/lib/easing/easing.min.js"></script>
+<script src="static/lib/superfish/hoverIntent.js"></script>
+<script src="static/lib/superfish/superfish.min.js"></script>
+<script src="static/lib/wow/wow.min.js"></script>
+<script src="static/lib/waypoints/waypoints.min.js"></script>
+<script src="static/lib/counterup/counterup.min.js"></script>
+<script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="static/lib/isotope/isotope.pkgd.min.js"></script>
+<script src="static/lib/lightbox/js/lightbox.min.js"></script>
+<script src="static/static/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+<script src="static/contactform/contactform.js"></script>
+<script src="static/js/js.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Morroco24</title>
+    <div th:replace="chef/chefFragments :: head_elements"></div>
+    <meta charset="utf-8">
+</head>
+<body class="sb-nav-fixed">
+<div th:replace="chef/chefFragments :: navbar"></div>
+<div id="layoutSidenav">
+    <div th:replace="chef/chefFragments :: layoutSidenav_nav"></div>
+    <div id="layoutSidenav_content">
+        <main>
+
+            <div class="card container" style="padding-bottom: 2%;width: 60%;margin-top: 5%;margin-left: 5%;">
+                <form th:action="@{/chefs/update-subject}" class="row g-3"
+                      onsubmit=""
+                      th:object="${subject}" method="POST">
+
+                    <div class="form-group">
+                        <label class="form-label">Sujet</label>
+                        <input type="text" th:field="*{sujet}" name="sujet" placeholder="Sujet"  class="form-control">
+                    </div>
+
+                    <input type="hidden" th:field="*{publicId}"/>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success" >Modifier</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </main>
+        <div th:replace="chef/chefFragments :: footer"></div>
+    </div>
+</div>
+
+<div th:replace="chef/chefFragments :: javaScriptLinks"></div>
+</body>
+</html>

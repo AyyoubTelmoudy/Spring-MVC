@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Morroco24</title>
+    <div th:replace="journaliste/journalisteFragments :: head_elements"></div>
+    <meta charset="utf-8">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+</head>
+<body class="sb-nav-fixed">
+<div th:replace="journaliste/journalisteFragments :: navbar"></div>
+<div id="layoutSidenav">
+    <div th:replace="journaliste/journalisteFragments :: layoutSidenav_nav"></div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="card container" style="padding-bottom: 2%;padding-top: 2%;width: 60%;margin-top: 5%;margin-left: 5%;">
+            <h1>Ajouter un aricle</h1>
+
+            <form th:action="@{/journalistes/save-article}" enctype="multipart/form-data" class="row g-3"
+                  th:object="${article}" method="POST">
+
+                <div class="form-group">
+                    <label  class="form-label">Titre</label>
+                    <input type="text" th:field="*{titre}" name="titre" placeholder="Titre" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label  class="form-label">Sujet</label>
+                   <select   required class="form-select" name="publicIdSujet">
+                      <div th:each="sujet : ${sujets}">
+                         <option th:text="${sujet.sujet}" th:value="${sujet.publicId}"></option>
+                      </div>
+                   </select>
+                </div>
+
+                <div class="form-group">
+                    <label  class="form-label">Contenu</label>
+                   <textarea class="form-control" th:field="*{contenu}"  name="contenu" rows="5"
+                          placeholder="Contenu" min="1" maxlength="40" id="contenu"  >
+                  </textarea>
+                   <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#contenu' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <input type="file" name="img"  class="form-control" required>
+                </div>
+                <div class="box-footer">
+                  <button type="submit"  class="btn btn-success" >Enregistrer</button>
+                </div>
+            </form>
+            </div>
+
+        </main>
+        <div th:replace="journaliste/journalisteFragments :: footer"></div>
+    </div>
+</div>
+<div th:replace="journaliste/journalisteFragments :: javaScriptLinks"></div>
+</body>
+</html>

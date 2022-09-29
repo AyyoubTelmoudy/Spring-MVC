@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Morroco24</title>
+    <div th:replace="chef/chefFragments :: head_elements"></div>
+    <meta charset="utf-8">
+</head>
+<body class="sb-nav-fixed">
+<div th:replace="chef/chefFragments :: navbar"></div>
+<div id="layoutSidenav">
+    <div th:replace="chef/chefFragments :: layoutSidenav_nav"></div>
+    <div id="layoutSidenav_content">
+        <main>
+
+            <div class="container" style="padding-bottom: 2%;width: 90%;margin-top: 5%;margin-left: 5%;">
+                <table class="table table-success table-striped">
+                    <thead class = "table-dark">
+                    <tr>
+                        <th>Sujet</th>
+                        <th>Titre</th>
+                        <th>Contenu</th>
+                        <th>Image</th>
+                        <th>Journaliste</th>
+                        <th>Validé</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each = "article: ${articles}">
+                        <td th:text = "${article.sujet.sujet}"></td>
+                        <td th:text = "${article.titre}"></td>
+                        <td th:utext = "${article.contenu}"></td>
+                        <td ><img th:src="${article.image}" class="img-fluid" alt=""></td>
+                        <td th:text = "${article.journaliste.nom}+ ' ' + ${article.journaliste.nom}"></td>
+                        <td th:text = "${article.estValide}"></td>
+                        <td>
+                            <a th:href = "@{/chefs/validate-article/{articlePublicId}(articlePublicId=${article.publicId})}" th:class="${article.estValide} ? 'btn btn-success disabled' : 'btn btn-success'">Valider</a>
+                            <a th:href = "@{/chefs/delete-article/{articlePublicId}(articlePublicId=${article.publicId})}"  class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+        <div th:replace="chef/chefFragments :: footer"></div>
+    </div>
+</div>
+
+<div th:replace="chef/chefFragments :: javaScriptLinks"></div>
+</body>
+</html>
